@@ -21,14 +21,14 @@ dtexp <- function(x, rate, a=0, b=Inf)
   return(y/(Fb-Fa))
 }
 
-ptexp <- function(x, rate, a=0, b=Inf)
+ptexp <- function(q, rate, a=0, b=Inf)
 {
   stopifnot( all( rate > 0 ) )
   Fa <- pexp(a, rate)
   Fb <- pexp(b, rate)
-  p <- ( pexp(x, rate) - Fa ) / ( Fb - Fa )
-  inda <- which(x < a)
-  indb <- which(x > b)
+  p <- ( pexp(q, rate) - Fa ) / ( Fb - Fa )
+  inda <- which(q < a)
+  indb <- which(q > b)
   if(length(inda) > 0) p[inda] <- 0
   if(length(indb) > 0) p[indb] <- 1
   return(p)

@@ -11,7 +11,7 @@
 \usage{
 rtlnorm(n, meanlog=0, sdlog=1, a=0, b=Inf)
 dtlnorm(x, meanlog=0, sdlog=1, a=0, b=Inf)
-ptlnorm(x, meanlog=0, sdlog=1, a=0, b=Inf)
+ptlnorm(q, meanlog=0, sdlog=1, a=0, b=Inf)
 qtlnorm(p, meanlog=0, sdlog=1, a=0, b=Inf)
 }
 \arguments{

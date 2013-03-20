@@ -4,15 +4,15 @@
 \alias{dtweibull}
 \alias{ptweibull}
 \alias{qtweibull}
-\title{Truncated weibull Functions}
+\title{Truncated Weibull Functions}
 \description{
   pdf, cdf, inverse cdf, and random deviates of the truncated weibull distribution.
 }
 \usage{
-rtweibull(n, shape, scale, a=-Inf, b=Inf)
-dtweibull(x, shape, scale, a=-Inf, b=Inf)
-ptweibull(x, shape, scale, a=-Inf, b=Inf)
-qtweibull(p, shape, scale, a=-Inf, b=Inf)
+rtweibull(n, shape, scale, a=0, b=Inf)
+dtweibull(x, shape, scale, a=0, b=Inf)
+ptweibull(q, shape, scale, a=0, b=Inf)
+qtweibull(p, shape, scale, a=0, b=Inf)
 }
 \arguments{
   \item{x,q}{vector of quantiles.}

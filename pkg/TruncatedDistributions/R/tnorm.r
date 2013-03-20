@@ -21,14 +21,14 @@ dtnorm <- function(x, mean=0, sd=1, a=-Inf, b=Inf)
   return(y/(Fb-Fa))
 }
 
-ptnorm <- function(x, mean=0, sd=1, a=-Inf, b=Inf)
+ptnorm <- function(q, mean=0, sd=1, a=-Inf, b=Inf)
 {
   stopifnot( all( sd > 0 ) )
   Fa <- pnorm(a, mean, sd)
   Fb <- pnorm(b, mean, sd)
-  p <- ( pnorm(x, mean, sd) - Fa ) / ( Fb - Fa )
-  inda <- which(x < a)
-  indb <- which(x > b)
+  p <- ( pnorm(q, mean, sd) - Fa ) / ( Fb - Fa )
+  inda <- which(q < a)
+  indb <- which(q > b)
   if(length(inda) > 0) p[inda] <- 0
   if(length(indb) > 0) p[indb] <- 1
   return(p)

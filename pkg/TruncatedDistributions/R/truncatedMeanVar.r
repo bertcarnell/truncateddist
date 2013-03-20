@@ -35,25 +35,25 @@ varTruncated <- function(f, param1, param2, a, b)
        abs.error=out$abs.error / (Fb - Fa) + 2*m$value*m$abs.error)
 }
 
-a <- 0.1
-b <- 5
-alpha_ <- 1
-beta_ <- 2
+#a <- 0.1
+#b <- 5
+#alpha_ <- 1
+#beta_ <- 2
 
-meanTruncated("gamma", alpha_, beta_, a, b)
-varTruncated("gamma", alpha_, beta_, a, b)
+#meanTruncated("gamma", alpha_, beta_, a, b)
+#varTruncated("gamma", alpha_, beta_, a, b)
 
-alpha_ * beta_ *
-  (pgamma(b / beta_, alpha_ + 1, 1) - pgamma(a / beta_, alpha_ + 1, 1)) /
-  (pgamma(b / beta_, alpha_, 1) - pgamma(a / beta_, alpha_, 1))
+#alpha_ * beta_ *
+#  (pgamma(b / beta_, alpha_ + 1, 1) - pgamma(a / beta_, alpha_ + 1, 1)) /
+#  (pgamma(b / beta_, alpha_, 1) - pgamma(a / beta_, alpha_, 1))
 
-meanTruncated("gamma", alpha_, beta_, 0, Inf)
-alpha_*beta_
-varTruncated("gamma", alpha_, beta_, 0, Inf)
-alpha_*beta_^2
+#meanTruncated("gamma", alpha_, beta_, 0, Inf)
+#alpha_*beta_
+#varTruncated("gamma", alpha_, beta_, 0, Inf)
+#alpha_*beta_^2
 
-alpha_ * beta_ *
-  (pgamma(Inf / beta_, alpha_ + 1, 1) - pgamma(0 / beta_, alpha_ + 1, 1)) /
-  (pgamma(Inf / beta_, alpha_, 1) - pgamma(0 / beta_, alpha_, 1))
+#alpha_ * beta_ *
+#  (pgamma(Inf / beta_, alpha_ + 1, 1) - pgamma(0 / beta_, alpha_ + 1, 1)) /
+#  (pgamma(Inf / beta_, alpha_, 1) - pgamma(0 / beta_, alpha_, 1))
 
 

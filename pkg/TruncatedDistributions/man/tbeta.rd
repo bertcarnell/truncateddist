@@ -9,10 +9,10 @@
   pdf, cdf, inverse cdf, and random deviates of the truncated beta distribution.
 }
 \usage{
-rtbeta(n, alpha, beta, a=-Inf, b=Inf)
-dtbeta(x, alpha, beta, a=-Inf, b=Inf)
-ptbeta(x, alpha, beta, a=-Inf, b=Inf)
-qtbeta(p, alpha, beta, a=-Inf, b=Inf)
+rtbeta(n, alpha, beta, a=0, b=1)
+dtbeta(x, alpha, beta, a=0, b=1)
+ptbeta(q, alpha, beta, a=0, b=1)
+qtbeta(p, alpha, beta, a=0, b=1)
 }
 \arguments{
   \item{x,q}{vector of quantiles.}

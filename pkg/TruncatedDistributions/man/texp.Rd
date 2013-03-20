@@ -9,10 +9,10 @@
   pdf, cdf, inverse cdf, and random deviates of the truncated Exponential distribution.
 }
 \usage{
-rtexp(n, rate, a=-Inf, b=Inf)
-dtexp(x, rate, a=-Inf, b=Inf)
-ptexp(x, rate, a=-Inf, b=Inf)
-qtexp(p, rate, a=-Inf, b=Inf)
+rtexp(n, rate, a=0, b=Inf)
+dtexp(x, rate, a=0, b=Inf)
+ptexp(q, rate, a=0, b=Inf)
+qtexp(p, rate, a=0, b=Inf)
 }
 \arguments{
   \item{x,q}{vector of quantiles.}

@@ -11,7 +11,7 @@
 \usage{
 rtnorm(n, mean=0, sd=1, a=-Inf, b=Inf)
 dtnorm(x, mean=0, sd=1, a=-Inf, b=Inf)
-ptnorm(x, mean=0, sd=1, a=-Inf, b=Inf)
+ptnorm(q, mean=0, sd=1, a=-Inf, b=Inf)
 qtnorm(p, mean=0, sd=1, a=-Inf, b=Inf)
 }
 \arguments{

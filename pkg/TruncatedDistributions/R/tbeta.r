@@ -1,4 +1,4 @@
-rtbeta <- function(n, alpha, beta, a=-Inf, b=Inf)
+rtbeta <- function(n, alpha, beta, a=0, b=1)
 {
   stopifnot(n > 0 & all(beta > 0) & all(alpha > 0))
   x <- runif(n)
@@ -8,7 +8,7 @@ rtbeta <- function(n, alpha, beta, a=-Inf, b=Inf)
   return(qbeta(y, alpha, beta))
 }
 
-dtbeta <- function(x, alpha, beta, a=-Inf, b=Inf)
+dtbeta <- function(x, alpha, beta, a=0, b=1)
 {
   stopifnot( all(alpha > 0) & all(beta > 0) )
   Fa <- pbeta(a, alpha, beta)
@@ -21,20 +21,20 @@ dtbeta <- function(x, alpha, beta, a=-Inf, b=Inf)
   return(y/(Fb-Fa))
 }
 
-ptbeta <- function(x, alpha, beta, a=-Inf, b=Inf)
+ptbeta <- function(q, alpha, beta, a=0, b=1)
 {
   stopifnot( all( alpha > 0 ) & all(beta > 0) )
   Fa <- pbeta(a, alpha, beta)
   Fb <- pbeta(b, alpha, beta)
-  p <- ( pbeta(x, alpha, beta) - Fa ) / ( Fb - Fa )
-  inda <- which(x < a)
-  indb <- which(x > b)
+  p <- ( pbeta(q, alpha, beta) - Fa ) / ( Fb - Fa )
+  inda <- which(q < a)
+  indb <- which(q > b)
   if(length(inda) > 0) p[inda] <- 0
   if(length(indb) > 0) p[indb] <- 1
   return(p)
 }
 
-qtbeta <- function(p, alpha, beta, a=-Inf, b=Inf)
+qtbeta <- function(p, alpha, beta, a=0, b=1)
 {
   stopifnot( all(p >= 0 & p <= 1) &  all( alpha > 0 ) & all(beta > 0) )
   Fa <- pbeta(a, alpha, beta)

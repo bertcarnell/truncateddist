@@ -21,14 +21,14 @@ dtgamma <- function(x, shape, scale=1, a=0, b=Inf)
   return(y/(Fb-Fa))
 }
 
-ptgamma <- function(x, shape, scale=1, a=0, b=Inf)
+ptgamma <- function(q, shape, scale=1, a=0, b=Inf)
 {
   stopifnot(all(shape > 0) & all(scale > 0))
   Fa <- pgamma(a, shape, scale=scale)
   Fb <- pgamma(b, shape, scale=scale)
-  p <- ( pgamma(x, shape, scale=scale) - Fa ) / ( Fb - Fa )
-  inda <- which(x < a)
-  indb <- which(x > b)
+  p <- ( pgamma(q, shape, scale=scale) - Fa ) / ( Fb - Fa )
+  inda <- which(q < a)
+  indb <- which(q > b)
   if(length(inda) > 0) p[inda] <- 0
   if(length(indb) > 0) p[indb] <- 1
   return(p)

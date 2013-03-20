@@ -21,14 +21,14 @@ dtlnorm <- function(x, meanlog=0, sdlog=1, a=0, b=Inf)
   return(y/(Fb-Fa))
 }
 
-ptlnorm <- function(x, meanlog=0, sdlog=1, a=0, b=Inf)
+ptlnorm <- function(q, meanlog=0, sdlog=1, a=0, b=Inf)
 {
   stopifnot( all( sdlog > 0 ) )
   Fa <- plnorm(a, meanlog, sdlog)
   Fb <- plnorm(b, meanlog, sdlog)
-  p <- ( plnorm(x, meanlog, sdlog) - Fa ) / ( Fb - Fa )
-  inda <- which(x < a)
-  indb <- which(x > b)
+  p <- ( plnorm(q, meanlog, sdlog) - Fa ) / ( Fb - Fa )
+  inda <- which(q < a)
+  indb <- which(q > b)
   if(length(inda) > 0) p[inda] <- 0
   if(length(indb) > 0) p[indb] <- 1
   return(p)

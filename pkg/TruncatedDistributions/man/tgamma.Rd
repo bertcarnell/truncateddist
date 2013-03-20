@@ -9,10 +9,10 @@
   pdf, cdf, inverse cdf, and random deviates of the truncated gamma distribution.
 }
 \usage{
-rtgamma(n, shape, scale=1, a=-Inf, b=Inf)
-dtgamma(x, shape, scale=1, a=-Inf, b=Inf)
-ptgamma(x, shape, scale=1, a=-Inf, b=Inf)
-qtgamma(p, shape, scale=1, a=-Inf, b=Inf)
+rtgamma(n, shape, scale=1, a=0, b=Inf)
+dtgamma(x, shape, scale=1, a=0, b=Inf)
+ptgamma(q, shape, scale=1, a=0, b=Inf)
+qtgamma(p, shape, scale=1, a=0, b=Inf)
 }
 \arguments{
   \item{x,q}{vector of quantiles.}
