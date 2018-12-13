@@ -1,0 +1,14 @@
+Package: truncateddist
+Title: Use Truncated Distribution functions
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Rob",
+           family = "Carnell",
+           role = c("aut", "cre"),
+           email = "bertcarnell@gmail.com")
+Description: Contains the distributions functions for many truncated distributions.
+License: GPL (>=2)
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 2.4.1) 
+RoxygenNote: 6.1.1
