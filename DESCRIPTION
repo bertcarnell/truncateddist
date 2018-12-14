@@ -16,5 +16,6 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    covr
+    covr,
+    ggplot2
 VignetteBuilder: knitr
