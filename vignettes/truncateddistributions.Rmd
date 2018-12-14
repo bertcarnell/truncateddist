@@ -1,0 +1,131 @@
+---
+title: "Truncated Distributions Examples"
+author: "Rob Carnell"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+require(truncateddist)
+require(ggplot2)
+```
+
+## Beta
+
+### Random Deviates
+
+```{r rbeta, fig.width = 5, fig.height = 3}
+N <- 100000
+set.seed(1976)
+dat <- data.frame(x1 = c(rbeta(N, 2, 2), rtbeta(N, 2, 2, 0.1, 0.8)),
+                  group = rep(c("full","truncated"), each = N))
+ggplot(subset(dat, group == "full"),
+       aes(x = x1, y = ..density.., fill = group, group = group)) + 
+  geom_histogram(binwidth = 0.05, alpha = 0.4) +
+  geom_histogram(aes(x = x1, y = ..density.., fill = group, group = group),
+                 data = subset(dat, group == "truncated"),
+                 binwidth = 0.05, alpha = 0.4) +
+  theme_bw() +
+  xlab("")
+```
+
+### PDF
+
+```{r dbeta, fig.width = 5, fig.height = 3}
+x <- seq(0, 1, length = 1000)
+dat <- data.frame(x1 = c(x, x),
+                  y = c(dbeta(x, 2, 2), dtbeta(x, 2, 2, 0.1, 0.8)),
+                  ycdf = c(pbeta(x, 2, 2), ptbeta(x, 2, 2, 0.1, 0.8)),
+                  yicdf = c(qbeta(x, 2, 2), qtbeta(x, 2, 2, 0.1, 0.8)),
+                  group = rep(c("full","truncated"), each = length(x)))
+ggplot(dat, aes(x = x1, y = y, col = group, group = group)) +
+  geom_line() +
+  theme_bw() +
+  xlab("") + ylab("Probability Density Function") +
+  theme(legend.title = element_blank())
+```
+
+### CDF
+
+```{r pbeta, fig.width = 5, fig.height = 3}
+ggplot(dat, aes(x = x1, y = ycdf, col = group, group = group)) +
+  geom_line() +
+  theme_bw() +
+  xlab("") + ylab("Cummulative Distribution Function") +
+  theme(legend.title = element_blank())
+```
+
+### Inverse CDF
+
+```{r qbeta, fig.width = 5, fig.height = 3}
+ggplot(dat, aes(x = x1, y = yicdf, col = group, group = group)) +
+  geom_line() +
+  theme_bw() +
+  xlab("Cummulative Probability") + ylab("Inverse CDF") +
+  theme(legend.title = element_blank())
+```
+
+## Normal
+
+### Random Deviates
+
+```{r rnorm, fig.width = 5, fig.height = 3}
+N <- 100000
+set.seed(1976)
+dat <- data.frame(x1 = c(rnorm(N, 2, 1), rtnorm(N, 2, 1, 1.0, Inf)),
+                  group = rep(c("full","truncated"), each = N))
+ggplot(subset(dat, group == "full"),
+       aes(x = x1, y = ..density.., fill = group, group = group)) + 
+  geom_histogram(binwidth = 0.05, alpha = 0.4) +
+  geom_histogram(aes(x = x1, y = ..density.., fill = group, group = group),
+                 data = subset(dat, group == "truncated"),
+                 binwidth = 0.05, alpha = 0.4) +
+  theme_bw() +
+  xlab("")
+```
+
+### PDF
+
+```{r dnorm, fig.width = 5, fig.height = 3}
+x <- seq(-3, 7, length = 1000)
+xp <- seq(0, 1, length = 1000)
+dat <- data.frame(x1 = c(x, x),
+                  x2 = c(xp, xp),
+                  y = c(dnorm(x, 2, 1), dtnorm(x, 2, 1, 1.0, Inf)),
+                  ycdf = c(pnorm(x, 2, 1), ptnorm(x, 2, 1, 1.0, Inf)),
+                  yicdf = c(qnorm(xp, 2, 1), qtnorm(xp, 2, 1, 1.0, Inf)),
+                  group = rep(c("full","truncated"), each = length(x)))
+ggplot(dat, aes(x = x1, y = y, col = group, group = group)) +
+  geom_line() +
+  theme_bw() +
+  xlab("") + ylab("Probability Density Function") +
+  theme(legend.title = element_blank())
+```
+
+### CDF
+
+```{r pnorm, fig.width = 5, fig.height = 3}
+ggplot(dat, aes(x = x1, y = ycdf, col = group, group = group)) +
+  geom_line() +
+  theme_bw() +
+  xlab("") + ylab("Cummulative Distribution Function") +
+  theme(legend.title = element_blank())
+```
+
+### Inverse CDF
+
+```{r qnorm, fig.width = 5, fig.height = 3}
+ggplot(dat, aes(x = x2, y = yicdf, col = group, group = group)) +
+  geom_line() +
+  theme_bw() +
+  xlab("Cummulative Probability") + ylab("Inverse CDF") +
+  theme(legend.title = element_blank())
+```
