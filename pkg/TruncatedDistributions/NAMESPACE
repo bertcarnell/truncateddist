@@ -1,7 +1,0 @@
-export(rtbeta, ptbeta, qtbeta, dtbeta,
-  rtexp, ptexp, dtexp, qtexp,
-  rtgamma, ptgamma, qtgamma, dtgamma,
-  rtnorm, ptnorm, qtnorm, dtnorm,
-  rtlnorm, ptlnorm, qtlnorm, dtlnorm,
-  rtweibull, ptweibull, qtweibull, dtweibull)
-  
