@@ -1,11 +1,18 @@
 language: r
 
+matrix:
+  include:
+    - dist: xenial
+      r: release
+      after_success: Rscript -e 'covr::codecov()'
+    - dist: trusty
+      r: devel
+    - os: osx
+      r: release
+
 r_github_packages:
   - r-lib/covr
 
-r:
-  - release
-  - devel
+cache: packages
 
-after_success:
-  - Rscript -e 'covr::codecov()'
+sudo: false
