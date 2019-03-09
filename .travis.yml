@@ -16,3 +16,5 @@ r_github_packages:
 cache: packages
 
 sudo: false
+# 3/8/2019 time checks are failing on R-devel
+env: _R_CHECK_SYSTEM_CLOCK_ = 0
